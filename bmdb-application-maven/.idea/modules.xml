@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/bmdb-application-app/bmdb-application-app.iml" filepath="$PROJECT_DIR$/bmdb-application-app/bmdb-application-app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bmdb-application-domain/bmdb-application-domain.iml" filepath="$PROJECT_DIR$/bmdb-application-domain/bmdb-application-domain.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bmdb-application-maven.iml" filepath="$PROJECT_DIR$/bmdb-application-maven.iml" />
+      <module fileurl="file://$PROJECT_DIR$/bmdb-application-service/bmdb-application-service.iml" filepath="$PROJECT_DIR$/bmdb-application-service/bmdb-application-service.iml" />
+    </modules>
+  </component>
+</project>

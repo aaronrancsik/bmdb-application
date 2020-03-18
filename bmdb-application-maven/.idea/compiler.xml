@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="bmdb-application-app" />
+        <module name="bmdb-application-domain" />
+        <module name="bmdb-application-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="bmdb-application-app" target="13" />
+      <module name="bmdb-application-domain" target="13" />
+      <module name="bmdb-application-maven" target="13" />
+      <module name="bmdb-application-service" target="13" />
+    </bytecodeTargetLevel>
+  </component>
+</project>
