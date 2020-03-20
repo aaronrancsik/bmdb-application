@@ -24,7 +24,7 @@ public class AppSpring {
         this.view = view;
     }
 
-    private void Play() {
+    private void launch() {
         createUser();
         do{
             doReviews();
