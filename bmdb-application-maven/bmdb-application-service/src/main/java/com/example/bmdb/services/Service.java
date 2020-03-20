@@ -1,4 +1,4 @@
-package com.example.bmdb;
+package com.example.bmdb.services;
 
 
 import com.example.bmdb.builders.DataBuilder;
@@ -6,7 +6,10 @@ import com.example.bmdb.data.Media;
 import com.example.bmdb.data.Review;
 import com.example.bmdb.data.User;
 
+
+
 import java.util.List;
+
 
 public class Service {
 

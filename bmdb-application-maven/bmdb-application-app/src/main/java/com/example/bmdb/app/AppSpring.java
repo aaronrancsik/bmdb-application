@@ -1,7 +1,7 @@
 package com.example.bmdb.app;
 
 
-import com.example.bmdb.Service;
+import com.example.bmdb.services.Service;
 import com.example.bmdb.data.Media;
 import com.example.bmdb.data.Review;
 import com.example.bmdb.data.User;
