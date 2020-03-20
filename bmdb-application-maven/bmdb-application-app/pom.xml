@@ -38,7 +38,7 @@
           </descriptorRefs>
           <archive>
             <manifest>
-              <mainClass>com.example.bmdb.app.App</mainClass>
+              <mainClass>com.example.bmdb.app.AppSpring</mainClass>
             </manifest>
           </archive>
         </configuration>

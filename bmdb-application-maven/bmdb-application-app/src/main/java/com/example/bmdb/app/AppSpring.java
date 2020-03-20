@@ -10,7 +10,7 @@ import com.example.bmdb.view.View;
 import java.util.List;
 
 
-public class App {
+public class AppSpring {
 
 
     Service service;
@@ -19,7 +19,7 @@ public class App {
     User currentUser;
     Media currentMedia;
 
-    public App(Service service, View view) {
+    public AppSpring(Service service, View view) {
         this.service = service;
         this.view = view;
     }
@@ -55,7 +55,7 @@ public class App {
     }
 
     public static void main(String[] args) {
-	    App app = new App(new Service(), new View());
+	    AppSpring app = new AppSpring(new Service(), new View());
 	    app.Play();
     }
 
