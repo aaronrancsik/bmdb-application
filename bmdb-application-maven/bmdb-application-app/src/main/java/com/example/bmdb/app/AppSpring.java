@@ -17,7 +17,7 @@ public class AppSpring {
     private static Logger log = LoggerFactory.getLogger(AppSpring.class);
 
     private Service service;
-    View view;
+    private View view;
 
     User currentUser;
     Media currentMedia;
