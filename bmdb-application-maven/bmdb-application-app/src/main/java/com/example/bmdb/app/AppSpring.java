@@ -9,11 +9,14 @@ import com.example.bmdb.view.View;
 
 import java.util.List;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class AppSpring {
 
+    private static Logger log = LoggerFactory.getLogger(AppSpring.class);
 
-    Service service;
+    private Service service;
     View view;
 
     User currentUser;
