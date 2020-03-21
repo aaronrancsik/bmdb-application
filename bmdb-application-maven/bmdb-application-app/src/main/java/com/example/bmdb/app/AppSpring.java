@@ -2,15 +2,20 @@ package com.example.bmdb.app;
 
 
 import com.example.bmdb.services.Service;
+import com.example.bmdb.config.AppConfig;
 import com.example.bmdb.data.Media;
 import com.example.bmdb.data.Review;
 import com.example.bmdb.data.User;
 import com.example.bmdb.view.View;
+import org.springframework.context.ConfigurableApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import javax.inject.Inject;
 import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 public class AppSpring {
 
@@ -19,48 +24,64 @@ public class AppSpring {
     private Service service;
     private View view;
 
-    User currentUser;
-    Media currentMedia;
-
-    public AppSpring(Service service, View view) {
+    @Inject
+    public void setService(Service service) {
+        log.info("setGeneralService");
         this.service = service;
+    }
+
+    @Inject
+    public void setView(View view) {
+        log.info("setView");
         this.view = view;
     }
 
+
     private void launch() {
-        createUser();
+        log.info("launch");
+        User user = createUser();
+        List<Media> medias = service.findAllMedia();
         do{
-            doReviews();
-        }while (view.questionYesOrNo("Do you want to write another review?"));
-        printReviews();
-    }
+            view.printMedias(medias);
+            Media selected = selectMedia(medias);
+            doReviews(user, selected);
+        }while (view.anotherReviewFromConsole());
 
-    private void createUser(){
-        User u = this.view.readUserData();
-        service.saveUser(u);
-        this.view.printWelcomeMessage(u);
-        currentUser = u;
-    }
-
-    private void doReviews(){
-        List<Media> medias = this.service.findAllMedia();
         view.printMedias(medias);
-        Media selected = view.selectMedia(medias);
-        currentMedia = selected;
-        Review review = view.writeReview();
-        review.setCreator(currentUser);
-        selected.addReview(review);
-        review.setMedia(selected);
+        Media selected = selectMedia(medias);
+        averageReviews(selected);
     }
 
-    private void printReviews(){
-        view.printReviews(currentMedia);
+    private User createUser(){
+        log.info("createUser");
+        User user = this.view.readUserData();
+        service.saveUser(user);
+        this.view.printWelcomeMessage(user);
+        return user;
+    }
+
+    private Media selectMedia(List<Media> medias){
+        log.info("selectMedia");
+        return medias.get(view.getMediaNumberFromConsole());
+    }
+
+
+    private void doReviews(User user, Media media){
+        log.info("doReviews");
+        Review review = view.getReviewFromConsole();
+        service.saveReview(media,review,user);
+
+    }
+
+    private void averageReviews(Media selected){
+        log.info("averageReviews");
+        view.averageReviewsToConsole(service.getAverageRating(selected));
     }
 
     public static void main(String[] args) {
-	    AppSpring app = new AppSpring(new Service(), new View());
-	    app.Play();
+        try(ConfigurableApplicationContext appContext = new AnnotationConfigApplicationContext(AppConfig.class)){
+            AppSpring app = appContext.getBean(AppSpring.class);
+            app.launch();
+        }
     }
-
-
 }
