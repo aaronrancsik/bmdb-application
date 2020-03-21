@@ -4,7 +4,11 @@ import com.example.bmdb.data.Media;
 import com.example.bmdb.data.Rating;
 import com.example.bmdb.data.Review;
 import com.example.bmdb.data.User;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
+@Component
 public class ReviewBuilder {
 
     private String text;

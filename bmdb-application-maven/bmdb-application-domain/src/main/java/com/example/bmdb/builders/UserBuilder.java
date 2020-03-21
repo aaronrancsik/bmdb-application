@@ -3,10 +3,14 @@ package com.example.bmdb.builders;
 
 import com.example.bmdb.data.Review;
 import com.example.bmdb.data.User;
+import org.springframework.beans.factory.config.ConfigurableBeanFactory;
+import org.springframework.context.annotation.Scope;
+import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
 import java.util.List;
 
+@Component
 public class UserBuilder {
     private String name;
     private  String email;

@@ -14,6 +14,19 @@ import java.util.Scanner;
 public class View {
     private Scanner in;
 
+
+    UserBuilder userBuilder;
+    @Inject
+    public void setUserBuilder(UserBuilder userBuilder) {
+        this.userBuilder = userBuilder;
+    }
+
+    ReviewBuilder reviewBuilder;
+    @Inject
+    public void setReviewBuilder(ReviewBuilder reviewBuilder) {
+        this.reviewBuilder = reviewBuilder;
+    }
+
     public View() {
         in = new Scanner(System.in);
     }
