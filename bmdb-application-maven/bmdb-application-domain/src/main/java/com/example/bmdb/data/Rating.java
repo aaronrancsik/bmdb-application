@@ -1,8 +1,8 @@
 package com.example.bmdb.data;
 
-
 import java.util.HashMap;
 import java.util.Map;
+
 
 public enum Rating {
     BAD(1), AVERAGE(3), GOOD(5);

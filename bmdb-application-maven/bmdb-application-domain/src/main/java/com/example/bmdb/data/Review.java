@@ -1,9 +1,8 @@
 package com.example.bmdb.data;
 
-
 import com.example.bmdb.builders.ReviewBuilder;
-
 import java.util.Objects;
+
 
 public class Review {
     private String text;

@@ -1,10 +1,9 @@
 package com.example.bmdb.data;
 
-
 import com.example.bmdb.builders.UserBuilder;
-
 import java.util.List;
 import java.util.Objects;
+
 
 public class User {
     private String name;

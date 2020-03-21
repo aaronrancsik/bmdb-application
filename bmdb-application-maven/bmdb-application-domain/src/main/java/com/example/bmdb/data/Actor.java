@@ -1,11 +1,10 @@
 package com.example.bmdb.data;
 
-
 import com.example.bmdb.builders.ActorBuilder;
-
 import java.time.LocalDate;
 import java.util.List;
 import java.util.Objects;
+
 
 public class Actor {
     private String name;

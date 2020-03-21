@@ -5,7 +5,6 @@ import com.example.bmdb.data.Actor;
 import com.example.bmdb.data.Media;
 import com.example.bmdb.data.Sex;
 
-
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
