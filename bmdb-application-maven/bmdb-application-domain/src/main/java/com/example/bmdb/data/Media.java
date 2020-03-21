@@ -86,7 +86,7 @@ public class Media {
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, title, description, premier, reviews, cast);
+        return Objects.hash(id, title, description, premier, cast);
     }
 
     @Override
