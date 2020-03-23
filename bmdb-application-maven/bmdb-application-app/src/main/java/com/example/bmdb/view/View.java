@@ -106,4 +106,8 @@ public class View {
             }
         }
     }
+
+    public void printRegistration() {
+        System.out.println(i18nMsg.getMsg("view.registration"));
+    }
 }
