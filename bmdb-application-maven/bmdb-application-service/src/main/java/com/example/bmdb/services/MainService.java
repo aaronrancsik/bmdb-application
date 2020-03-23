@@ -35,16 +35,16 @@ public class MainService {
     }
 
     public void doReview(String email, String pass, long mediaId, String reviewText, Rating rating){
-        Media m = mediaService.findById(mediaId);
+        Media media = mediaService.findById(mediaId);
 
-        Review r =reviewBuilder
+        Review review = reviewBuilder
                 .withText(reviewText)
                 .withRating(rating)
-                .withMedia(m)
+                .withMedia(media)
                 .withCreator(userService.findUser(email,pass))
                 .build();
-        reviewService.save(r);
-        m.addReview(r);
-        mediaService.save(m);
+        media.addReview(review);
+        reviewService.save(review);
+        mediaService.save(media);
     }
 }
