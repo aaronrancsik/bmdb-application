@@ -7,7 +7,6 @@ import com.example.bmdb.models.User;
 import org.springframework.stereotype.Component;
 
 import javax.inject.Inject;
-import java.util.List;
 import java.util.Scanner;
 
 @Component
@@ -55,32 +54,26 @@ public class View {
         System.out.println(i18nMsg.getMsg("view.welcome",new Object[]{ user.getName() }));
     }
 
-    public void printMedias(List<Media> medias){
+    public void printMedias(Iterable<Media> medias){
         System.out.println(i18nMsg.getMsg("view.medias"));
-        for (int i = 0; i < medias.size(); i++){
-            System.out.println(i+": "+medias.get(i));
+        for (Media m: medias){
+            System.out.println(m.toString());
         }
         System.out.println(i18nMsg.getMsg("view.get.id"));
     }
 
-    public int getMediaNumberFromConsole(){
+    public long getIdFromConsole(){
         String input = in.nextLine();
         int inputNumber = Integer.parseInt(input);
         return inputNumber;
     }
 
-    public Review getReviewFromConsole(){
-        reviewBuilder.setText(getReviewTextFromConsole());
-        reviewBuilder.setRating(getRatingFromConsole());
-        return reviewBuilder.getReview();
-    }
-
-    private String getReviewTextFromConsole() {
+    public String getReviewTextFromConsole() {
         System.out.println(i18nMsg.getMsg("view.get.review"));
         return in.nextLine();
     }
 
-    private Rating getRatingFromConsole() {
+    public Rating getRatingFromConsole() {
         Rating rate = null;
         while (rate == null){
             System.out.println(i18nMsg.getMsg("view.get.rating"));
