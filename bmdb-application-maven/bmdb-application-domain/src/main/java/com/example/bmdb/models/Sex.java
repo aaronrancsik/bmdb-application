@@ -1,4 +1,5 @@
-package com.example.bmdb.data;
+package com.example.bmdb.models;
+
 
 public enum Sex {
     MALE, FEMALE
