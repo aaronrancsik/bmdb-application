@@ -13,6 +13,7 @@
         <module>bmdb-application-domain</module>
       </modules>
     <properties>
+        <spring.version>5.2.4.RELEASE</spring.version>
         <maven.compiler.source>13</maven.compiler.source>
         <maven.compiler.target>${maven.compiler.source}</maven.compiler.target>
     </properties>
@@ -33,7 +34,7 @@
         <dependency>
             <groupId>org.springframework</groupId>
             <artifactId>spring-context</artifactId>
-            <version>5.2.4.RELEASE</version>
+            <version>${spring.version}</version>
         </dependency>
         <dependency>
             <groupId>javax.inject</groupId>
