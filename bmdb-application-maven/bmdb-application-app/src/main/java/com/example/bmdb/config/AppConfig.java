@@ -9,7 +9,7 @@ import org.springframework.context.annotation.Import;
 
 @Configuration
 @ComponentScan("com.example")
-@Import({DomainMockConfig.class, MessageConfig.class })
+@Import({DomainMockConfig.class, MessageConfig.class, PersistenceJPAConfig.class })
 public class AppConfig {
 
     @Bean
