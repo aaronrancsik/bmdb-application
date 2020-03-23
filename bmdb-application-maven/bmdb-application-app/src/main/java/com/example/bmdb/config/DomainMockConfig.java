@@ -1,263 +1,307 @@
 package com.example.bmdb.config;
 
-import com.example.bmdb.builders.ActorBuilder;
-import com.example.bmdb.builders.MediaBuilder;
-import com.example.bmdb.builders.ReviewBuilder;
-import com.example.bmdb.builders.UserBuilder;
-import com.example.bmdb.data.*;
+import com.example.bmdb.models.*;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
 
-import java.math.BigDecimal;
+import javax.inject.Inject;
 import java.time.LocalDate;
+import java.util.*;
 
 @Configuration
 public class DomainMockConfig {
 
+    private Actor.ActorBuilder actorBuilder;
+    @Inject
+    public void setActorBuilder(Actor.ActorBuilder actorBuilder) {
+        this.actorBuilder = actorBuilder;
+    }
+
+    private Media.MediaBuilder mediaBuilder;
+    @Inject
+    public void setMediaBuilder(Media.MediaBuilder mediaBuilder) {
+        this.mediaBuilder = mediaBuilder;
+    }
+
+    private User.UserBuilder userBuilder;
+    @Inject
+    public void setUserBuilder(User.UserBuilder userBuilder) {
+        this.userBuilder = userBuilder;
+    }
+
+    private Review.ReviewBuilder reviewBuilder;
+    @Inject
+    public void setReviewBuilder(Review.ReviewBuilder reviewBuilder) {
+        this.reviewBuilder = reviewBuilder;
+    }
+
+    private Calendar cal = Calendar.getInstance();
+
     @Bean
     public Actor createActor0(){
-        return new ActorBuilder()
-                .setName("Actor 1")
-                .setBorn(LocalDate.of(1910, 1, 11))
-                .setSex(Sex.MALE)
-                .setBiography("Bio Bullshit 1").getActor();
+        cal.set(1910, 1, 11);
+        return actorBuilder
+                .withName("Actor 1")
+                .withBorn(cal.getTime())
+                .withSex(Sex.MALE)
+                .withBiography("Bio Bullshit 1")
+                .withFilmography(new ArrayList<>())
+                .build();
     }
 
     @Bean
     public Actor createActor1(){
-        return new ActorBuilder()
-                .setName("Actor 2")
-                .setBorn(LocalDate.of(1920, 2, 12))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 2")
-                .getActor();
+        cal.set(1920, 2, 12);
+        return actorBuilder
+                .withName("Actor 2")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 2")
+                .withFilmography(new ArrayList<>())
+                .build();
     }
 
     @Bean
     public Actor createActor2(){
-        return new ActorBuilder()
-                .setName("Actor 3")
-                .setBorn(LocalDate.of(1930, 3, 13))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 3")
-                .getActor();
+        cal.set(1930, 3, 13);
+        return actorBuilder
+                .withName("Actor 3")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 3")
+                .withFilmography(new ArrayList<>())
+                .build();
     }
 
     @Bean
     public Actor createActor3(){
-        return new ActorBuilder()
-                .setName("Actor 4")
-                .setBorn(LocalDate.of(1940, 4, 14))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 4")
-                .getActor();
+        cal.set(1940, 4, 14);
+        return actorBuilder
+                .withName("Actor 4")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 4")
+                .build();
     }
 
     @Bean
     public Actor createActor4(){
-        return new ActorBuilder()
-                .setName("Actor 5")
-                .setBorn(LocalDate.of(1950, 5, 15))
-                .setSex(Sex.MALE)
-                .setBiography("Bio Bullshit 5")
-                .getActor();
+        cal.set(1950, 5, 15);
+        return actorBuilder
+                .withName("Actor 5")
+                .withBorn(cal.getTime())
+                .withSex(Sex.MALE)
+                .withBiography("Bio Bullshit 5")
+                .build();
     }
 
     @Bean
     public Actor createActor5(){
-        return new ActorBuilder()
-                .setName("Actor 6")
-                .setBorn(LocalDate.of(1960, 6, 16))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 6")
-                .getActor();
+        cal.set(1960, 6, 16);
+        return actorBuilder
+                .withName("Actor 6")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 6")
+                .build();
     }
 
     @Bean
     public Actor createActor6(){
-        return new ActorBuilder()
-                .setName("Actor 7")
-                .setBorn(LocalDate.of(1970, 7, 17))
-                .setSex(Sex.MALE)
-                .setBiography("Bio Bullshit 7")
-                .getActor();
+        cal.set(1970, 7, 17);
+        return actorBuilder
+                .withName("Actor 7")
+                .withBorn(cal.getTime())
+                .withSex(Sex.MALE)
+                .withBiography("Bio Bullshit 7")
+                .build();
     }
     @Bean
     public Actor createActor7(){
-        return new ActorBuilder()
-                .setName("Actor 8")
-                .setBorn(LocalDate.of(1980, 8, 18))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 8")
-                .getActor();
+        cal.set(1980, 8, 18);
+        return actorBuilder
+                .withName("Actor 8")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 8")
+                .build();
     }
     @Bean
     public Actor createActor8(){
-        return new ActorBuilder()
-                .setName("Actor 9")
-                .setBorn(LocalDate.of(1990, 9, 19))
-                .setSex(Sex.MALE)
-                .setBiography("Bio Bullshit 9")
-                .getActor();
+        cal.set(1990, 9, 19);
+        return actorBuilder
+                .withName("Actor 9")
+                .withBorn(cal.getTime())
+                .withSex(Sex.MALE)
+                .withBiography("Bio Bullshit 9")
+                .build();
     }
 
     @Bean
     public Actor createActor9(){
-        return new ActorBuilder()
-                .setName("Actor 10")
-                .setBorn(LocalDate.of(2000, 10, 20))
-                .setSex(Sex.FEMALE)
-                .setBiography("Bio Bullshit 10")
-                .getActor();
+        cal.set(2000, 10, 20);
+        return actorBuilder
+                .withName("Actor 10")
+                .withBorn(cal.getTime())
+                .withSex(Sex.FEMALE)
+                .withBiography("Bio Bullshit 10")
+                .build();
     }
 
     @Bean
     public Media createMedia0(){
-        return new MediaBuilder()
-                .setId(BigDecimal.valueOf(1))
-                .setTitle("Movie 1")
-                .setDescription("Super description 1")
-                .setPremier(LocalDate.of(2011, 1, 20))
+        cal.set(2011,1,21);
+        return mediaBuilder
+                .withTitle("Movie 1")
+                .withDescription("Super description 1")
+                .withPremier(cal.getTime())
+                .withCast(new ArrayList<>())
                 .addCast(createActor0())
                 .addCast(createActor1())
-                .getSeries();
+                .build();
     }
 
     @Bean
     public Media createMedia1(){
-        return new MediaBuilder()
-                .setId(BigDecimal.valueOf(2))
-                .setTitle("Movie 1")
-                .setDescription("Super description 1")
-                .setPremier(LocalDate.of(2011, 1, 20))
+        cal.set(2011, 2, 22);
+        return mediaBuilder
+                .withTitle("Movie 2")
+                .withDescription("Super description 2")
+                .withPremier(cal.getTime())
+                .withCast(new ArrayList<>())
                 .addCast(createActor2())
                 .addCast(createActor3())
-                .getSeries();
+                .build();
     }
 
     @Bean
     public Media createMedia2(){
-        return new MediaBuilder()
-                .setId(BigDecimal.valueOf(3))
-                .setTitle("Movie 3")
-                .setDescription("Super description 3")
-                .setPremier(LocalDate.of(2013, 3, 23))
+        cal.set(2013, 3, 23);
+        return mediaBuilder
+                .withTitle("Movie 3")
+                .withDescription("Super description 3")
+                .withPremier(cal.getTime())
+                .withCast(new ArrayList<>())
                 .addCast(createActor4())
                 .addCast(createActor5())
-                .getSeries();
+                .build();
     }
 
     @Bean
     public Media createMedia3(){
-        return new MediaBuilder()
-                .setId(BigDecimal.valueOf(4))
-                .setTitle("Movie 4")
-                .setDescription("Super description 4")
-                .setPremier(LocalDate.of(2014, 4, 24))
+        cal.set(2014, 4, 24);
+        return mediaBuilder
+                .withTitle("Movie 4")
+                .withDescription("Super description 4")
+                .withPremier(cal.getTime())
+                .withCast(new ArrayList<>())
                 .addCast(createActor6())
                 .addCast(createActor7())
-                .getSeries();
+                .build();
     }
 
     @Bean
     public Media createMedia4(){
-        return new MediaBuilder()
-                .setId(BigDecimal.valueOf(5))
-                .setTitle("Movie 5")
-                .setDescription("Super description 5")
-                .setPremier(LocalDate.of(2015, 5, 15))
+        cal.set(2015, 5, 15);
+        return mediaBuilder
+                .withTitle("Movie 5")
+                .withDescription("Super description 5")
+                .withPremier(cal.getTime())
+                .withCast(new ArrayList<>())
                 .addCast(createActor8())
                 .addCast(createActor9())
-                .getSeries();
+                .build();
     }
 
     @Bean
     public User createUser0() {
-        return new UserBuilder()
-                .setName("Alma")
-                .setEmail("alma@ealma.com")
-                .setPassword("batman")
-                .getUser();
+        return userBuilder
+                .withName("Alma")
+                .withEmail("alma@ealma.com")
+                .withPassword("batman")
+                .withReviews(new ArrayList<>())
+                .build();
     }
 
     @Bean
     public User createUser1() {
-        return new UserBuilder()
-                .setName("Banana")
-                .setEmail("banan@banan.com")
-                .setPassword("beethoven")
-                .getUser();
+        return userBuilder
+                .withName("Banana")
+                .withEmail("banan@banan.com")
+                .withPassword("beethoven")
+                .build();
     }
 
     @Bean
     public User createUser2() {
-        return new UserBuilder()
-                .setName("Peel")
-                .setEmail("peel@peel.com")
-                .setPassword("brown")
-                .getUser();
+        return userBuilder
+                .withName("Peel")
+                .withEmail("peel@peel.com")
+                .withPassword("brown")
+                .build();
     }
 
     @Bean
     public Review createReview0(){
-        return new ReviewBuilder()
-                .setText("rev 1")
-                .setCreator(createUser0())
-                .setMedia(createMedia0())
-                .setRating(Rating.GOOD)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 1")
+                .withCreator(createUser0())
+                .withCreator(createUser0())
+                .withMedia(createMedia0())
+                .withRating(Rating.GOOD)
+                .build();
     }
-
 
     @Bean
     public Review createReview1(){
-        return new ReviewBuilder()
-                .setText("rev 2")
-                .setCreator(createUser0())
-                .setMedia(createMedia1())
-                .setRating(Rating.BAD)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 2")
+                .withCreator(createUser0())
+                .withMedia(createMedia1())
+                .withRating(Rating.BAD)
+                .build();
     }
 
     @Bean
     public Review createReview2(){
-        return new ReviewBuilder()
-                .setText("rev 3")
-                .setCreator(createUser1())
-                .setMedia(createMedia2())
-                .setRating(Rating.AVERAGE)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 3")
+                .withCreator(createUser1())
+                .withMedia(createMedia2())
+                .withRating(Rating.AVERAGE)
+                .build();
     }
 
     @Bean
     public Review createReview3(){
-        return new ReviewBuilder()
-                .setText("rev 4")
-                .setCreator(createUser1())
-                .setMedia(createMedia3())
-                .setRating(Rating.GOOD)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 4")
+                .withCreator(createUser1())
+                .withMedia(createMedia3())
+                .withRating(Rating.GOOD)
+                .build();
     }
 
     @Bean
     public Review createReview4(){
-        return new ReviewBuilder()
-                .setText("rev 5")
-                .setCreator(createUser2())
-                .setMedia(createMedia4())
-                .setRating(Rating.BAD)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 5")
+                .withCreator(createUser2())
+                .withMedia(createMedia4())
+                .withRating(Rating.BAD)
+                .build();
     }
 
     @Bean
     public Review createReview5(){
-        return new ReviewBuilder()
-                .setText("rev 6")
-                .setCreator(createUser2())
-                .setMedia(createMedia4())
-                .setRating(Rating.AVERAGE)
-                .getReview();
+        return reviewBuilder
+                .withText("rev 6")
+                .withCreator(createUser2())
+                .withMedia(createMedia4())
+                .withRating(Rating.AVERAGE)
+                .build();
     }
 
 
