@@ -1,14 +1,10 @@
 package com.example.bmdb.view;
 
-
-import com.example.bmdb.builders.ReviewBuilder;
-import com.example.bmdb.builders.UserBuilder;
-import com.example.bmdb.data.Media;
-import com.example.bmdb.data.Rating;
-import com.example.bmdb.data.Review;
-import com.example.bmdb.data.User;
+import com.example.bmdb.models.Media;
+import com.example.bmdb.models.Rating;
+import com.example.bmdb.models.Review;
+import com.example.bmdb.models.User;
 import org.springframework.stereotype.Component;
-
 
 import javax.inject.Inject;
 import java.util.List;
@@ -25,15 +21,15 @@ public class View {
         this.i18nMsg = i18nMsg;
     }
 
-    UserBuilder userBuilder;
+    User.UserBuilder userBuilder;
     @Inject
-    public void setUserBuilder(UserBuilder userBuilder) {
+    public void setUserBuilder(User.UserBuilder userBuilder) {
         this.userBuilder = userBuilder;
     }
 
-    ReviewBuilder reviewBuilder;
+    Review.ReviewBuilder reviewBuilder;
     @Inject
-    public void setReviewBuilder(ReviewBuilder reviewBuilder) {
+    public void setReviewBuilder(Review.ReviewBuilder reviewBuilder) {
         this.reviewBuilder = reviewBuilder;
     }
 
@@ -44,15 +40,15 @@ public class View {
     public User readUserData()  {
 
         System.out.println(i18nMsg.getMsg("view.question.name"));
-        userBuilder.setName(in.nextLine());
+        userBuilder.withName(in.nextLine());
 
         System.out.println(i18nMsg.getMsg("view.get.email"));
-        userBuilder.setEmail(in.nextLine());
+        userBuilder.withEmail(in.nextLine());
 
         System.out.println(i18nMsg.getMsg("view.get.newPassword"));
-        userBuilder.setPassword(in.nextLine());
+        userBuilder.withPassword(in.nextLine());
 
-        return userBuilder.getUser();
+        return userBuilder.build();
     }
 
     public void printWelcomeMessage(User user){
