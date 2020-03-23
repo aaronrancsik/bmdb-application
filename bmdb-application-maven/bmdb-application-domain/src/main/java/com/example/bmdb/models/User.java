@@ -111,5 +111,12 @@ public class User {
             user.setReviews(reviews);
             return user;
         }
+
+        @Override
+        public String toString() {
+            return "UserBuilder{" +
+                    ", email='" + email + '\'' +
+                    '}';
+        }
     }
 }
