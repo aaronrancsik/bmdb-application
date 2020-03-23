@@ -71,7 +71,7 @@ public class Review {
                 "id=" + id +
                 ", version=" + version +
                 ", text='" + text + '\'' +
-                ", creator=" + creator +
+                ", creator=" + creator.getEmail() +
                 ", rating=" + rating +
                 '}';
     }
